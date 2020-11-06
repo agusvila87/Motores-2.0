@@ -291,8 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd5cffd07995dc499c942b3ecfee7db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HOLA: 0
-  forward: {fileID: 0}
-  back: {fileID: 0}
+  forward: {fileID: 511350663695770938}
+  back: {fileID: 511350665065218552}
   left: {fileID: 0}
   right: {fileID: 0}
