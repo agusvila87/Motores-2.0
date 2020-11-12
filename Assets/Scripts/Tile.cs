@@ -7,11 +7,9 @@ public class Tile : MonoBehaviour
     public enum TileName
     {
         Pared,
-        Final,
         Cruce,
-        ParedConcava,
-        PisoTecho,
-        PuertaAbierta
+        Final,
+        Puerta
     }
 
     public GameObject forward, back, left, right;
@@ -23,9 +21,7 @@ public class Tile : MonoBehaviour
             var gameObjectName = gameObject.name;
             if (gameObjectName.Contains("Pared")) return TileName.Pared;
             else if (gameObjectName.Contains("Cruce")) return TileName.Cruce;
-            else if (gameObjectName.Contains("ParedConcava")) return TileName.ParedConcava;
-            else if (gameObjectName.Contains("PisoTecho")) return TileName.PisoTecho;
-            else if (gameObjectName.Contains("PuertaAbierta")) return TileName.PuertaAbierta;
+            else if (gameObjectName.Contains("Puerta")) return TileName.Puerta;
             else return TileName.Final;
 
         }

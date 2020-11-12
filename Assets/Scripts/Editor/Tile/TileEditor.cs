@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.VersionControl;
 
 [CustomEditor(typeof(Tile))]
 public class TileEditor : Editor
@@ -43,41 +44,20 @@ public class TileEditor : Editor
 
         if (GUI.Button(rect, text))
         {
-            Tile t = new Tile();
-            if (t != null)
+            if (PrefabWindow.selectedObject != null)
             {
-                switch (PrefabWindow.prefab)
-                {
-                    case "Pared":
-                        t = (Tile)Resources.Load("Prefabs/Pared", typeof(Tile));
-                        break;
-                    case "Final":
-                        t = (Tile)Resources.Load("Prefabs/Final", typeof(Tile));
-                        break;
-                    case "Cruce":
-                        t = (Tile)Resources.Load("Prefabs/Cruce", typeof(Tile));
-                        break;
-                    case "ParedConcava":
-                        t = (Tile)Resources.Load("Prefabs/ParedConcava", typeof(Tile));
-                        break;
-                    case "PisoTecho":
-                        t = (Tile)Resources.Load("Prefabs/PisoTecho", typeof(Tile));
-                        break;
-                    case "PuertaAbierta":
-                        t = (Tile)Resources.Load("Prefabs/PuertaAbierta", typeof(Tile));
-                        break;
-                }
-                Tile _tile = Instantiate(t);
-                _tile.transform.forward = dir;
-                _tile.transform.position = nPos + (_tile.transform.forward.normalized * Vector3.Distance(_tile.back.transform.position, _tile.transform.position));
-                Selection.activeObject = _tile;
-                SceneView.lastActiveSceneView.LookAt(_tile.transform.position);
+                Debug.Log(PrefabWindow.selectedObject.name);
+                var t = (Tile)Resources.Load("Prefabs/" + PrefabWindow.selectedObject.name, typeof(Tile));
+                var _tile = Instantiate(t);
+                t.transform.forward = dir;
+                t.transform.position = nPos + (t.transform.forward.normalized * Vector3.Distance(t.back.transform.position, t.transform.position));
+                Selection.activeObject = t;
+                SceneView.lastActiveSceneView.LookAt(t.transform.position);
             }
             else
             {
                 EditorWindow.GetWindow<PrefabWindow>().Show();
             }
-
         }
     }
 
