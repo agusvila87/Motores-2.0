@@ -31,6 +31,7 @@ public class PrefabWindow : EditorWindow
         EditorGUILayout.EndScrollView();
         EditorGUILayout.EndVertical();
 
+        
         string[] assetPaths = AssetDatabase.FindAssets(prefab);
 
         for (int i = 0; i < assetPaths.Length; i++)
@@ -56,7 +57,12 @@ public class PrefabWindow : EditorWindow
                 selectedObject = go;
             }
         }
-        EditorGUILayout.EndHorizontal();
         EditorGUILayout.EndScrollView();
+        EditorGUILayout.EndHorizontal();
+        GUI.color = Color.white;
+        if (GUILayout.Button("Create"))
+        {
+            var go = Instantiate(selectedObject, Vector3.zero, Quaternion.identity);
+        }
     }
 }
