@@ -11,6 +11,8 @@ public class PrefabWindow : EditorWindow
     public static string prefab;
     int prefabIndex;
     Vector2 _scrollPos;
+    Vector2 _scroll;
+    GameObject selectedObject = null;
 
     [MenuItem("Level Windows/Prefab Editor")]
     static void CreateWindow()
@@ -27,5 +29,31 @@ public class PrefabWindow : EditorWindow
         Repaint();
         EditorGUILayout.EndScrollView();
         EditorGUILayout.EndVertical();
+        string[] assetPaths = AssetDatabase.FindAssets(prefab);
+
+        for (int i = 0; i < assetPaths.Length; i++)
+        {
+            assetPaths[i] = AssetDatabase.GUIDToAssetPath(assetPaths[i]);
+        }
+
+        GameObject[] assets = new GameObject[assetPaths.Length];
+        for (int i = 0; i < assetPaths.Length; i++)
+        {
+            assets[i] = AssetDatabase.LoadAssetAtPath<GameObject>(assetPaths[i]);
+        }
+        _scroll = EditorGUILayout.BeginScrollView(_scroll);
+        EditorGUILayout.BeginHorizontal();
+        foreach (GameObject go in assets)
+        {
+                GUI.color = (go == selectedObject) ? Color.green : Color.white;
+            GUIContent cont = new GUIContent(AssetPreview.GetAssetPreview(go));
+
+            if (GUILayout.Button(cont))
+            {
+                selectedObject = go;
+            }
+        }
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.EndScrollView();
     }
 }
