@@ -41,7 +41,7 @@ public class TileEditor : Editor
     }
    
 
-    private void CreateButton(string text, Vector3 pos, Vector3 dir, Vector3 nPos)
+    private void CreateButton(string text, Vector3 pos, Vector3 dir, Vector3 nPos) //el npos es al pedo 
     {
         var _pos = Camera.current.WorldToScreenPoint(pos);
         var size = 2000 / Vector3.Distance(Camera.current.transform.position, pos);
@@ -52,9 +52,10 @@ public class TileEditor : Editor
             {
                 var t = (Tile)Resources.Load("Prefabs/" + PrefabWindow.selectedObject.name, typeof(Tile));
                 var _tile = Instantiate(t);
+                Debug.Log("Llege");
                 t.transform.forward = dir;
                 t.transform.position = nPos + (t.transform.forward.normalized * Vector3.Distance(t.back.transform.position, t.transform.position));
-                Selection.activeObject = t;
+                Selection.activeGameObject = t.gameObject;
                 SceneView.lastActiveSceneView.LookAt(t.transform.position);
             }
             else
