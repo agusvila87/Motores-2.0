@@ -1,6 +1,5 @@
 ﻿/*
  *******DUDAS******
- * A veces no reconoce si puede instanciar en ese lugar o no.
  * Como podemos hacer para que el usuario sepa como generar nuevos prefabs.
  * 
  * *****ARREGLOS******

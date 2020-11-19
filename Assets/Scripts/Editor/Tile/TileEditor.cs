@@ -53,9 +53,9 @@ public class TileEditor : Editor
         var r = new Rect(_pos.x, Screen.height -_pos.y - 50, 45, 45);
         if (GUI.Button(r, text))
         {
-            if (PrefabWindow.selectedObject != null)
+            if (LevelCreator.selectedObject != null)
             {
-                var t = (Tile)Resources.Load("Prefabs/" + PrefabWindow.selectedObject.name, typeof(Tile));
+                var t = (Tile)Resources.Load("Prefabs/" + LevelCreator.selectedObject.name, typeof(Tile));
                 var _tile = Instantiate(t);
                 _tile.transform.forward = dir;
                 Vector3 TPos = _tile.transform.forward.normalized * Vector3.Distance(_tile.back.transform.position, _tile.transform.position);
@@ -66,7 +66,7 @@ public class TileEditor : Editor
             }
             else
             {
-                EditorWindow.GetWindow<PrefabWindow>().Show();
+                EditorWindow.GetWindow<LevelCreator>().Show();
             }
         }
     }

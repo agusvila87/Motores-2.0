@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class PrefabWindow : EditorWindow
+public class LevelCreator : EditorWindow
 {
     //List<string> prefabName = new List<string>(); No pudimos pasarle el index en el popUp, por eso usamos array, pero no es la idea que buscamos.
     //public List<string> pName = new List<string>() { "A", "B", "C", "D" };
-    string[] prefabName = {"Pared", "Principio Y Final", "Cruce", "Puerta"};
+    string[] prefabName = {"Pared", "Cruce", "Puerta"};
     public static string prefab;
     public static string assetPath;
     int prefabIndex;
@@ -15,10 +15,10 @@ public class PrefabWindow : EditorWindow
     Vector2 _scroll;
     public static GameObject selectedObject = null;
 
-    [MenuItem("Level Windows/Prefab Editor")]
+    [MenuItem("Level Windows/Level Creator")]
     static void CreateWindow()
     {
-        ((PrefabWindow)GetWindow(typeof(PrefabWindow))).Show();
+        ((LevelCreator)GetWindow(typeof(LevelCreator))).Show();
     }
 
     private void OnGUI()
