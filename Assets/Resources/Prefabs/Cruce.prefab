@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5173852499716135169}
   - component: {fileID: 5209324222034025472}
   - component: {fileID: 3491757446946283835}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 2936482688689590324}
   - component: {fileID: 6034922424567474631}
   - component: {fileID: 2941634724254765292}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 2768723704245648708}
   - component: {fileID: 3185843250820327723}
   - component: {fileID: 7948052817738194621}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 8412637143117350468}
   - component: {fileID: 307210846216444403}
   - component: {fileID: 491191529623159023}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1033,7 +1033,7 @@ GameObject:
   - component: {fileID: 4569380139279288486}
   - component: {fileID: 4743146017993625064}
   - component: {fileID: 2473308972190362419}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1336,7 +1336,7 @@ GameObject:
   - component: {fileID: 4983464799700400697}
   - component: {fileID: 1253031355629955303}
   - component: {fileID: 1117497258831305197}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1428,7 +1428,7 @@ GameObject:
   - component: {fileID: 7365295935544145948}
   - component: {fileID: 5466540726053647463}
   - component: {fileID: 2200456826050289734}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1811,7 +1811,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3169489728913295284}
-  - component: {fileID: 8121241486660156040}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -1833,19 +1832,6 @@ Transform:
   m_Father: {fileID: 7226495324445150170}
   m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!65 &8121241486660156040
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4859954287092179478}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.9842579, y: 1, z: 1.3705294}
-  m_Center: {x: 0, y: 0, z: -1.7856647}
 --- !u!1 &5109030357827154956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,7 +1844,7 @@ GameObject:
   - component: {fileID: 1845049097650745419}
   - component: {fileID: 3964313888012482256}
   - component: {fileID: 9189233826463445545}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1950,7 +1936,7 @@ GameObject:
   - component: {fileID: 5877160322013892813}
   - component: {fileID: 1605634187415749347}
   - component: {fileID: 8931281228640387518}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2135,7 +2121,7 @@ GameObject:
   - component: {fileID: 6414872718109523512}
   - component: {fileID: 3804970270137884943}
   - component: {fileID: 8986595452928888739}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2227,7 +2213,7 @@ GameObject:
   - component: {fileID: 1257916240880685300}
   - component: {fileID: 8013471470316003011}
   - component: {fileID: 7819520067761872262}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2332,7 +2318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5807102237752306975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0011250973, y: 0, z: 21.502504}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6869948535834775195}
@@ -2532,7 +2518,7 @@ GameObject:
   - component: {fileID: 1796516247680038778}
   - component: {fileID: 1072705021904394720}
   - component: {fileID: 6913556616320125951}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2703,7 +2689,7 @@ GameObject:
   - component: {fileID: 8741343577856265813}
   - component: {fileID: 5519642290107969104}
   - component: {fileID: 2863002374324469433}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2840,7 +2826,7 @@ GameObject:
   - component: {fileID: 3642206567095717482}
   - component: {fileID: 4828294489748729003}
   - component: {fileID: 2534098983277838600}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3055,7 +3041,7 @@ GameObject:
   - component: {fileID: 7393716163515412479}
   - component: {fileID: 8556928273404664597}
   - component: {fileID: 2334613967744576876}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3191,7 +3177,7 @@ GameObject:
   - component: {fileID: 6394304003584594971}
   - component: {fileID: 5158921423540424168}
   - component: {fileID: 3118724040871150530}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Piso (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

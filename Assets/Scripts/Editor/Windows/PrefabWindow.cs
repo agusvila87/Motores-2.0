@@ -7,7 +7,7 @@ public class PrefabWindow : EditorWindow
 {
     //List<string> prefabName = new List<string>(); No pudimos pasarle el index en el popUp, por eso usamos array, pero no es la idea que buscamos.
     //public List<string> pName = new List<string>() { "A", "B", "C", "D" };
-    string[] prefabName = {"Pared", "Final", "Cruce", "Puerta"};
+    string[] prefabName = {"Pared", "Principio Y Final", "Cruce", "Puerta"};
     public static string prefab;
     public static string assetPath;
     int prefabIndex;

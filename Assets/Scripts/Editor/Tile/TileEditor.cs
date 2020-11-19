@@ -17,26 +17,31 @@ public class TileEditor : Editor
     void OnSceneGUI()
     {
         Handles.BeginGUI();
-        //var addValue = 300 / Vector3.Distance(Camera.current.transform.position, tgt.transform.position);
+        var addValue = 300 / Vector3.Distance(Camera.current.transform.position, tgt.transform.position);
 
-        //var _pos = Camera.current.WorldToScreenPoint(tgt.transform.position);
-        //var size = 2000 / Vector3.Distance(Camera.current.transform.position, tgt.transform.position);
-        //var r = new Rect(_pos.x, Screen.height - _pos.y - 100, 45, 45);
-        //GUI.Button(r, tgt.currentTileName.ToString());
+        var _pos = Camera.current.WorldToScreenPoint(tgt.transform.position);
+        var size = 2000 / Vector3.Distance(Camera.current.transform.position, tgt.transform.position);
+        var r = new Rect(_pos.x, Screen.height - _pos.y - 100, 45, 45);
+        GUI.Button(r, tgt.currentTileName.ToString());
         //CreateButton(tgt.currentTileName.ToString(), tgt.transform.position, Vector3.zero, Vector3.zero);
-            RotateButton("o", tgt.transform.position, tgt.transform);
-        if (tgt.forward && (!Physics.Raycast(tgt.transform.position, tgt.transform.forward, 20, layerMask: 9)))
+        RotateButton("o", tgt.transform.position, tgt.transform);
+        //RaycastHit Hit;
+        if (tgt.forward && (!Physics.Raycast(tgt.forward.transform.position, tgt.forward.transform.forward, 20)))
         {
-            CreateButton("+", tgt.forward.transform.position * 1, tgt.forward.transform.forward);
+                CreateButton("+", tgt.forward.transform.position * 1, tgt.forward.transform.forward);
         }
-        if (tgt.right && (!Physics.Raycast(tgt.transform.position, tgt.transform.right, 20, layerMask: 9)))
+        if (tgt.right && (!Physics.Raycast(tgt.right.transform.position, tgt.right.transform.forward, 20)))
         {
-            CreateButton("+", tgt.right.transform.position * 1, tgt.right.transform.forward);
+                CreateButton("+", tgt.right.transform.position * 1, tgt.right.transform.forward);
         }
-        if (tgt.left && (!Physics.Raycast(tgt.transform.position, -tgt.transform.right, 20, layerMask: 9)))
-        { 
-            CreateButton("+", tgt.left.transform.position *1, tgt.left.transform.forward);
-        } 
+        if (tgt.left && (!Physics.Raycast(tgt.left.transform.position, tgt.left.transform.forward, 20)))
+        {
+                CreateButton("+", tgt.left.transform.position *1, tgt.left.transform.forward);
+        }
+        if (tgt.back && (!Physics.Raycast(tgt.back.transform.position, tgt.back.transform.forward, 20)))
+        {
+                CreateButton("+", tgt.back.transform.position * 1, tgt.back.transform.forward);
+        }
         Handles.EndGUI();
     }
    

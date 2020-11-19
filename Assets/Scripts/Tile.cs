@@ -8,7 +8,7 @@ public class Tile : MonoBehaviour
     {
         Pared,
         Cruce,
-        Final,
+        PrincipioYFinal,
         Puerta
     }
 
@@ -22,7 +22,7 @@ public class Tile : MonoBehaviour
             if (gameObjectName.Contains("Pared")) return TileName.Pared;
             else if (gameObjectName.Contains("Cruce")) return TileName.Cruce;
             else if (gameObjectName.Contains("Puerta")) return TileName.Puerta;
-            else return TileName.Final;
+            else return TileName.PrincipioYFinal;
 
         }
     }
