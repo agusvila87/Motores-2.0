@@ -3,14 +3,14 @@ using System.Collections;
 using UnityEditor;
 using UnityEditor.VersionControl;
 
-[CustomEditor(typeof(Tile))]
+[CustomEditor(typeof(PrefabTile))]
 public class TileEditor : Editor
 {
-    private Tile tgt;
+    private PrefabTile tgt;
 
     private void OnEnable()
     {
-        tgt = (Tile)target;
+        tgt = (PrefabTile)target;
 
     }
 
@@ -55,7 +55,7 @@ public class TileEditor : Editor
         {
             if (LevelCreator.selectedObject != null)
             {
-                var t = (Tile)Resources.Load("Prefabs/" + LevelCreator.selectedObject.name, typeof(Tile));
+                var t = (PrefabTile)Resources.Load("Prefabs/" + LevelCreator.selectedObject.name, typeof(PrefabTile));
                 var _tile = Instantiate(t);
                 _tile.transform.forward = dir;
                 Vector3 TPos = _tile.transform.forward.normalized * Vector3.Distance(_tile.back.transform.position, _tile.transform.position);
