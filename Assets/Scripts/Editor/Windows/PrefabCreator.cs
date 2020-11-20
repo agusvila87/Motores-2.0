@@ -16,7 +16,7 @@ public class PrefabCreator : EditorWindow
     string emptyPrefabPath;
     string _prefabName;
     PrefabTile tileScript;
-    GameObject _forward, _back, _left, _right;
+    //GameObject _forward, _back, _left, _right;
 
     [MenuItem("Level Windows/Prefab Creator")]
     static void CreateWindow()
@@ -34,8 +34,8 @@ public class PrefabCreator : EditorWindow
             GUI.enabled = false;
         }
 
-            prefabIndex = EditorGUILayout.Popup("Prefab Type", prefabIndex, prefabName);
-            prefab = prefabName[prefabIndex];
+        prefabIndex = EditorGUILayout.Popup("Tipo de Prefab", prefabIndex, prefabName);
+        prefab = prefabName[prefabIndex];
 
         //ACA QUERIAMOS QUE CUANDO SE APRETE EL BOTÓN SE AGREGE EL SCRIPT, YA LO SOLUCIONAMOS.
         //tileScript = (PrefabTile)EditorGUILayout.ObjectField("Select Tile Script", tileScript, typeof(PrefabTile), false);
@@ -60,30 +60,55 @@ public class PrefabCreator : EditorWindow
         //}
 
 
-        if (emptyPrefab.GetComponent<PrefabTile>() == null)
-        {
-            if (GUILayout.Button("Add Component Tile"))
-            {
-                //_forward = Resources.Load()
-                emptyPrefab.AddComponent<PrefabTile>();
+        //if (emptyPrefab !=null)
+        //{
+        //    if(emptyPrefab.GetComponent<PrefabTile>() == null)
+        //    {
+        //        if (GUILayout.Button("Agregar Componente PrefabTile"))
+        //        {
+        //            emptyPrefab.AddComponent<PrefabTile>();
+        //            //GameObject Foward = new GameObject();
+        //            //Foward.name = "Foward";
+        //            //Foward.transform.SetParent(emptyPrefab.transform);
+        //        }
+        //        else
+        //        {
+        //            EditorGUILayout.HelpBox("Se necesita agregar el componente PrefabTile", MessageType.Warning);
+        //        }
+        //    }
+        //}
 
-                _forward.transform.SetParent(emptyPrefab.transform);
-                //GameObject Foward = new GameObject();
-                //Foward.name = "Foward";
-                //Foward.transform.SetParent(emptyPrefab.transform);
-            }
-            EditorGUILayout.HelpBox("Se necesita agregar el componente PrefabTile", MessageType.Warning);
-            //GUI.enabled = false;
-        }
-
-        if (GUILayout.Button("Create"))
+        if (GUILayout.Button("Crear Prefabs"))
         {
-            emptyPrefab.name = emptyPrefab.name + " " +prefab;
-            assetPath = AssetDatabase.GetAssetPath(emptyPrefab);
-            FileUtil.MoveFileOrDirectory(assetPath, "Assets/Resources/Prefabs/"+ emptyPrefab.name+".prefab");
-            
+            var PrefabInstantiate = Instantiate(emptyPrefab);
+            PrefabInstantiate.name = emptyPrefab.name + " " + prefab;
+            PrefabInstantiate.AddComponent<PrefabTile>();
+            PrefabInstantiate.transform.position = Vector3.zero;
+            GameObject Foward = new GameObject();
+            Foward.name = "Foward";
+            Foward.transform.SetParent(PrefabInstantiate.transform);
+            GameObject Back = new GameObject();
+            Back.name = "Back";
+            Back.transform.SetParent(PrefabInstantiate.transform);
+            GameObject Right = new GameObject();
+            Right.name = "Right";
+            Right.transform.SetParent(PrefabInstantiate.transform);
+            GameObject Left = new GameObject();
+            Left.name = "Left";
+            Left.transform.SetParent(PrefabInstantiate.transform);
+
+            //assetPath = AssetDatabase.GetAssetPath(emptyPrefab);
+            assetPath = "Assets/Resources/Prefabs/" + PrefabInstantiate.name + ".prefab";
+            PrefabUtility.SaveAsPrefabAsset(PrefabInstantiate, assetPath);
+            //FileUtil.MoveFileOrDirectory(assetPath, "Assets/Resources/Prefabs/"+ emptyPrefab.name+".prefab");
+            DestroyImmediate(PrefabInstantiate);
             AssetDatabase.Refresh(); //Aca refrescamos porque sino teniamos que minimizar.
         }
+
+        GUILayout.Space(100);
+        EditorGUILayout.HelpBox("Recordatorio: Una ves creado el Prefab y acomodar los pivots, tambien deberas guiarlos en el Script: PrefabTile",MessageType.Info);
+        GUILayout.Space(1);
+        EditorGUILayout.HelpBox("El Prefab creado lo podes encontrar en /Resources/Prefabs/ ", MessageType.Info);
         EditorGUILayout.EndVertical();
     }
 }
