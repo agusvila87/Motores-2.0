@@ -33,11 +33,12 @@ public class LevelCreator : EditorWindow
 
         
         string[] assetPaths = AssetDatabase.FindAssets(prefab);
+        Debug.Log(prefab);
 
         for (int i = 0; i < assetPaths.Length; i++)
         {
             assetPaths[i] = AssetDatabase.GUIDToAssetPath(assetPaths[i]);
-            assetPath = assetPaths[i];
+            //assetPath = assetPaths[i];
         }
 
         GameObject[] assets = new GameObject[assetPaths.Length];

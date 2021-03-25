@@ -73,9 +73,7 @@ public class TileEditor : Editor
 
     private void RotateButton(string text, Vector3 pos, Transform rot)
     {
-        //var _pos = Camera.current.WorldToScreenPoint(pos);
-        //var size = 1500 / Vector3.Distance(Camera.current.transform.position, pos);
-        //var rect = new Rect(_pos.x - size / 2, Screen.height - _pos.y - size, 20, 20);
+
         var _pos = Camera.current.WorldToScreenPoint(tgt.transform.position);
         var size = 2000 / Vector3.Distance(Camera.current.transform.position, tgt.transform.position);
         var r = new Rect(_pos.x - 50, Screen.height - _pos.y - 100, 45, 45);
